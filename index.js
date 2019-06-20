@@ -3,7 +3,8 @@ const { argv } = require("yargs");
 
 const yaml = require("js-yaml");
 const fs = require("fs");
-const configFile = fs.readFileSync(argv["config"] || "./config.yaml");
+const configFilePath = argv["config"] || process.env.CONFIGFILE || "./config.yaml";
+const configFile = fs.readFileSync(configFilePath);
 const config = yaml.load(configFile);
 const axios = require("axios");
 const apiKey = argv["api-key"] || process.env.API_KEY;

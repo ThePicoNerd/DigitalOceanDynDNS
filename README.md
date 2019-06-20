@@ -65,16 +65,16 @@ spec:
             - name: doddns
               image: thepiconerd/digitaloceandyndns
               env:
+                - name: CONFIGFILE
+                  value: /data/config.yaml
                 - name: API_KEY
                   valueFrom:
                     secretKeyRef:
                       name: digitalocean
                       key: apiKey
-              args:
-                - "--config /etc/config/config.yaml"
               volumeMounts:
                 - name: config
-                  mountPath: /etc/config
+                  mountPath: /data/
           restartPolicy: OnFailure
           volumes:
             - name: config
