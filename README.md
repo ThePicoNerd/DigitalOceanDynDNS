@@ -68,14 +68,14 @@ spec:
                 - name: API_KEY
                   valueFrom:
                     secretKeyRef:
-                      - name: digitalocean
-                        key: apiKey
+                      name: digitalocean
+                      key: apiKey
               args:
                 - "--config /etc/config/config.yaml"
               volumeMounts:
                 - name: config
                   mountPath: /etc/config
-              restartPolicy: OnFailure
+          restartPolicy: OnFailure
           volumes:
             - name: config
               configMap:
