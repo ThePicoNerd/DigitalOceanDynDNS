@@ -1,0 +1,14 @@
+domains:
+  - name: lynx.agency
+    records:
+      - name: "@"
+        type: "A"
+        data: 1.1.1.1
+        ttl: 300
+      - name: "*"
+        type: "A"
+        data: 2.2.2.2
+        ttl: 500
+  - name: xn--sdermalmsskolan-8sb.com
+    records:
+      - name: "@"
