@@ -24,8 +24,6 @@ async function getRecords(domain) {
   return records;
 }
 
-console.log(apiKey);
-
 class Domain {
   constructor(name, records) {
     this.name = name;
