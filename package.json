@@ -1,7 +1,7 @@
 {
   "name": "digitaldceandyndns",
   "version": "0.1.0",
-  "description": "Read the title.",
+  "description": "Automatically updates DNS records at DigitalOcean.",
   "main": "index.js",
   "scripts": {
     "start": "node ."
