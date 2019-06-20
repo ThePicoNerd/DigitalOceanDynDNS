@@ -34,3 +34,39 @@ domains:
 
 You must also provide your DigitalOcean API Key in order for this program to work. Simply add the environment variable `API_KEY` and set its value to your key (`export API_KEY="<REPLACE WITH YOUR DIGITALOCEAN API KEY>"`) or pass the argument `api-key` to the process (`node . --api-key=<REPLACE WITH YOUR DIGITALOCEAN API KEY>`).
 
+## Examples
+
+### Kubernetes CronJob
+
+```yaml
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: dyndns
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: doddns
+              image: thepiconerd/digitaloceandyndns
+              env:
+                - name: API_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      - name: digitalocean
+                        key: apiKey
+              args:
+                - --config /etc/config/config.yaml
+              volumeMounts:
+                - name: config
+                  mountPath: /etc/config
+              restartPolicy: OnFailure
+          volumes:
+            - name: config
+              configMap:
+                name: doddns-config
+```

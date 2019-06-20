@@ -1,9 +1,10 @@
 require("dotenv").config();
+const { argv } = require("yargs");
+
 const yaml = require("js-yaml");
 const fs = require("fs");
-const config = yaml.load(fs.readFileSync("./config.yaml"));
-const { argv } = require("yargs");
-const url = require("url");
+const configFile = fs.readFileSync(argv["config"] || "./config.yaml");
+const config = yaml.load(configFile);
 const axios = require("axios");
 const apiKey = argv["api-key"] || process.env.API_KEY;
 
