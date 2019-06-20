@@ -4,7 +4,8 @@
   "description": "Automatically updates DNS records at DigitalOcean.",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "publish": "np --no-publish"
   },
   "repository": {
     "type": "git",
