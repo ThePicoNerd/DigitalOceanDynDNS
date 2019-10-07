@@ -1,0 +1,29 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-doddns
+spec:
+  schedule: {{ .Values.cron.expression | default "*/5 * * * *" | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: doddns
+              image: thepiconerd/digitaloceandyndns
+              env:
+                - name: CONFIGFILE
+                  value: /data/config.yaml
+                - name: API_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: digitalocean
+                      key: apiKey
+              volumeMounts:
+                - name: config
+                  mountPath: /data/
+          restartPolicy: OnFailure
+          volumes:
+            - name: config
+              configMap:
+                name: doddns-config

@@ -1,27 +1,14 @@
 {
-  "name": "digitaldceandyndns",
-  "version": "0.1.7",
-  "description": "Automatically updates DNS records at DigitalOcean.",
-  "main": "index.js",
+  "name": "ddns",
+  "main": "main.js",
   "scripts": {
-    "start": "node .",
-    "publish": "np --no-publish"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ThePicoNerd/DigitalOceanDynDNS.git"
+    "start": "node ."
   },
   "keywords": [],
   "author": "Åke Amcoff",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ThePicoNerd/DigitalOceanDynDNS/issues"
-  },
-  "homepage": "https://github.com/ThePicoNerd/DigitalOceanDynDNS#readme",
   "dependencies": {
-    "axios": "^0.19.0",
-    "dotenv": "^8.0.0",
-    "js-yaml": "^3.13.1",
-    "yargs": "^13.2.4"
+    "axios": "^0.18.0",
+    "dotenv": "^6.2.0"
   }
 }
