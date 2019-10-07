@@ -2,6 +2,10 @@
 
 Automatically update DigitalOcean Domains Records.
 
+## Warning! 🍝
+
+I haven't had time to update this and it is broken for now. If you want to, feel free to clean up my spaghetti code. 🍝
+
 ## `config.yaml`
 
 The main config file is `config.yaml`. Each domain is specified inside the `domains` array. In each element of the `domains`, you must specify the name of the domain in `name`, and the domain's records in the `records` array.
