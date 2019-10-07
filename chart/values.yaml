@@ -1,0 +1,2 @@
+cron:
+  expression: "*/5 * * * *" # How often the program should check the IPs
